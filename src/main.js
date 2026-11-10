@@ -1,11 +1,18 @@
 import kaplay from "kaplay";
+import { createBaseMap } from "./ui/maps/base.js";
+import { mainMenu } from "./ui/menu/elements.js";
 // import "kaplay/global"; // uncomment if you want to use without the k. prefix
 
-const k = kaplay();
+const k = kaplay({
+  width: 800,
+  height: 600,
+  backgroundColor: [0, 0, 0],
+});
 
-k.loadRoot("./"); // A good idea for Itch.io publishing later
-k.loadSprite("bean", "sprites/bean.png");
+mainMenu(k);
 
-k.add([k.pos(120, 80), k.sprite("bean")]);
+k.scene("game", () => {
+  createBaseMap(k);
+});
 
-k.onClick(() => k.addKaboom(k.mousePos()));
+k.go("main menu");
