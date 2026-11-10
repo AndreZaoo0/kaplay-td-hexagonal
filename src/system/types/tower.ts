@@ -1,6 +1,6 @@
 export type CurrentyTower = {
   readonly identifier: IndetifierTower;
-  target: EnemiesTower;
+  target: EnemyStats;
   level: number;
   upgradeCost: number;
   sellValue: number;
@@ -14,8 +14,8 @@ export interface IndetifierTower {
   readonly cost: number;
 }
 
-export interface EnemiesTower {
-  EnemyType: EnemyType;
+export interface EnemyStats {
+  class: string;
   moveSpeed: number;
   hitDamage: number;
   hitBox: number;
@@ -23,4 +23,3 @@ export interface EnemiesTower {
 }
 
 type AttackType = "standard" | "quicking" | "area" | "stun";
-type EnemyType = "standard" | "elite" | "boss";

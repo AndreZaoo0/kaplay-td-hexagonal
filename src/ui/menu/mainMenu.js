@@ -1,5 +1,5 @@
 export function mainMenu(k) {
-  k.scene("menu principal", () => {
+  k.scene("main menu", () => {
     k.add([k.rect(k.width(), k.height()), k.pos(0, 0), k.color(20, 24, 35)]);
 
     k.add([
