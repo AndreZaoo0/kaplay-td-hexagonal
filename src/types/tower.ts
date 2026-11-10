@@ -7,14 +7,14 @@ export type CurrentyTower = {
   isActive: boolean;
 };
 
-interface IndetifierTower {
+export interface IndetifierTower {
   readonly id: string;
   readonly name: string;
   readonly description: string;
   readonly cost: number;
 }
 
-interface EnemiesTower {
+export interface EnemiesTower {
   EnemyType: EnemyType;
   moveSpeed: number;
   hitDamage: number;
