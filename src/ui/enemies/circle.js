@@ -1,15 +1,8 @@
-/** @type {import("../../types/enemies").EnemyStats} */
-const enemyStats = {
-  class: "standard",
-  moveSpeed: 2,
-  hitDamage: 2,
-  hitBox: 1,
-  deadValue: 5,
-};
+/** *@param {import("../../types/enemies").EnemyStats} stats */
 
-function createCircleEnemy(k, x, y) {
+function createCircleEnemy(k, x, y, stats) {
   return k.add([
-    k.sprite("Inimigo-Comum-Circle"),
+    k.sprite(stats.spriteKey),
     k.pos(x, y),
     k.scale(1),
     k.anchor("center"),
@@ -18,6 +11,5 @@ function createCircleEnemy(k, x, y) {
 }
 
 export const circulo = {
-  stats: enemyStats,
-  create: (k, x, y) => createCircleEnemy(k, x, y),
+  create: (k, x, y, stats) => createCircleEnemy(k, x, y, stats),
 };

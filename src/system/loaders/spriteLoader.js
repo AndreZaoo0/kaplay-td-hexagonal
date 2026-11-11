@@ -1,4 +1,4 @@
-import { GAME_SPRITES } from "../data/spriteList.js";
+import { GAME_SPRITES } from "../../data/spriteList.js";
 
 export function assetsLoader(k) {
   Object.values(GAME_SPRITES)
