@@ -1,5 +1,6 @@
 import kaplay from "kaplay";
 import { mapSprite } from "./ui/maps/base.js";
+import { createBaseMap } from "./ui/maps/base.js";
 import { mainMenu } from "./ui/menu/mainMenu.js";
 import { createTowerSelectionHUD } from "./ui/hud/towers/selection.js";
 import { circulo } from "./ui/enemies/circle.js";
@@ -16,6 +17,7 @@ assetsLoader(k);
 
 k.scene("game", () => {
   mapSprite(k, "Mapa-Level-1", 0, 0);
+  createBaseMap(k);
   createTowerSelectionHUD(k);
   circulo.create(k, 100, 100);
 });
