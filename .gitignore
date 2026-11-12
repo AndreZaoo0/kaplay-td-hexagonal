@@ -2,5 +2,8 @@ node_modules/
 dist/
 .DS_Store
 
-/storage/*.sqlite
-/storage/*.sqlite-*
+/server/storage/*.sqlite*
+
+bun.lock
+
+.claude/
