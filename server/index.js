@@ -2,6 +2,7 @@ import "./database/init.js";
 import { getEnemyByCode } from "./repositories/enemyRepository.js";
 
 const server = Bun.serve({
+  hostname: "127.0.0.1",
   port: 3001,
 
   fetch(req) {
