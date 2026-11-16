@@ -1,7 +1,7 @@
 import kaplay from "kaplay";
 import { mapOneSprite } from "./ui/maps/levelOne.js";
 import { mainMenu } from "./ui/menu/mainMenu.js";
-import { createTowerSelectionHUD } from "./ui/hud/selection.js";
+import { createHud } from "./ui/hud/selection.js";
 import { assetsLoader } from "./system/loaders/spriteLoader.js";
 import { loadEnemyStats } from "./system/loaders/enemyLoader.js";
 import { EnemySpawning } from "./ui/maps/levelOne.js";
@@ -18,8 +18,10 @@ const k = kaplay({
 assetsLoader(k);
 
 k.scene("game", () => {
+  createHud(k, "background-hud", -12, -23.5, 3.0);
+
   mapOneSprite(k, "Mapa-Level-1", 0, 0, 3);
-  createTowerSelectionHUD(k);
+
   EnemySpawning(k, circleStats);
 });
 
