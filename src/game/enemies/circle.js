@@ -1,5 +1,6 @@
-/** *@param {import("../../types/enemies").EnemyStats} stats */
+/** @param {import("../../core/types/tower").EnemyStats} stats */
 
+//configuração que cria o inimigo circulo
 function createCircleEnemy(k, x, y, stats) {
   return k.add([
     k.sprite(stats.spriteKey),
