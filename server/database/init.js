@@ -14,7 +14,7 @@ db.run(`
 
 db.query(
   `
-  INSERT OR IGNORE INTO enemy_templates (
+  INSERT INTO enemy_templates (
     code,
     enemy_class,
     move_speed,
@@ -24,5 +24,12 @@ db.query(
     sprite_key
   )
   VALUES (?, ?, ?, ?, ?, ?, ?)
+  ON CONFLICT(code) DO UPDATE SET
+    enemy_class = excluded.enemy_class,
+    move_speed = excluded.move_speed,
+    hit_damage = excluded.hit_damage,
+    hit_box = excluded.hit_box,
+    dead_value = excluded.dead_value,
+    sprite_key = excluded.sprite_key
 `,
-).run("circle", "standard", 2, 2, 1, 5, "Inimigo-Comum-Circle");
+).run("circle", "standard", 12, 2, 1, 5, "Inimigo-Comum-Circle");
