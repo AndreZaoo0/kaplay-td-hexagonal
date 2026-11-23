@@ -17,4 +17,14 @@ export const GAME_SPRITES = {
       path: "examples/sprites/Torre-Basica.png",
     },
   ],
+  hud: [
+    {
+      name: "background-hud",
+      path: "examples/sprites/Background-Hexagonal.png",
+    },
+    {
+      name: "border-hud",
+      path: "examples/sprites/Bordas-Hud.png",
+    },
+  ],
 };
