@@ -15,5 +15,6 @@ export function LevelOne(k, mapSprite = "Mapa-Level-1") {
     k.sprite(mapSprite),
     k.pos(position.x, position.y),
     k.scale(scale),
+    k.area(),
   ]);
 }

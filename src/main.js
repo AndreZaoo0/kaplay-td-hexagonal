@@ -5,6 +5,8 @@ import { assetsLoader } from "./core/loaders/spriteLoader.js";
 import { loadEnemyStats } from "./core/loaders/enemyLoader.js";
 import { EnemySpawning } from "./game/enemies/enemyRoute.js";
 import { createHud, createBorder } from "./ui/hud/background.js";
+import { exibirTorres } from "./ui/hud/towers.js";
+import { posicionarTorres } from "./game/towers/towerPlacement.js";
 // import "kaplay/global"; // uncomment if you want to use without the k. prefix
 
 const circleStats = await loadEnemyStats("circle");
@@ -18,10 +20,12 @@ const k = kaplay({
 assetsLoader(k);
 
 k.scene("game", () => {
-  createBorder(k, "border-hud", 0, 0, 3.0);
-
   createHud(k, "background-hud", -12, -23.5, 3.0);
-  LevelOne(k);
+  const map = LevelOne(k);
+  createBorder(k, "border-hud", 0, 0, 3.0);
+  const selecionarTorre = posicionarTorres(k, map);
+  exibirTorres(k, selecionarTorre);
+
   EnemySpawning(k, circleStats, LEVEL_ONE_ROUTE);
 });
 
