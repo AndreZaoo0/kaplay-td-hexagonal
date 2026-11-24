@@ -7,6 +7,7 @@ import { EnemySpawning } from "./game/enemies/enemyRoute.js";
 import { createHud, createBorder } from "./ui/hud/background.js";
 import { exibirTorres } from "./ui/hud/towers.js";
 import { posicionarTorres } from "./game/towers/towerPlacement.js";
+import { loadFonts } from "./ui/fonts.js";
 // import "kaplay/global"; // uncomment if you want to use without the k. prefix
 
 const circleStats = await loadEnemyStats("circle");
@@ -15,8 +16,10 @@ const k = kaplay({
   width: 1280,
   height: 720,
   backgroundColor: [0, 0, 0],
+  font: "SmallPixaly",
 });
 
+loadFonts(k);
 assetsLoader(k);
 
 k.scene("game", () => {
