@@ -1,7 +1,6 @@
-import { MAP_CONFIG } from "../../core/config/mapConfig.js";
 import { RAIO_ALCANCE } from "../../core/config/towerConfig.js";
 import { posicaoBloqueada } from "./towerUtils.js";
-import { colorTowerConfig } from "../../ui/colors/towerColors.js";
+import { colorTowerConfig } from "../../ui/colors/colorPalette.js";
 
 function criarAlcance(k, posicao, opacidade) {
   return k.add([
@@ -35,8 +34,8 @@ export function posicionarTorres(k, mapa) {
     estado.previa = k.add([
       k.sprite(sprite),
       k.pos(k.mousePos()),
-      k.scale(MAP_CONFIG.scale),
-      k.anchor("center"),
+      k.scale(3),
+      k.anchor("left"),
       k.color(colorTowerConfig(k, "normal")),
       k.opacity(0.6),
       k.z(99),
@@ -69,7 +68,7 @@ export function posicionarTorres(k, mapa) {
     const torre = k.add([
       k.sprite(estado.selecionada),
       k.pos(posicao),
-      k.scale(MAP_CONFIG.scale),
+      k.scale(4),
       k.anchor("center"),
       k.area(),
       k.z(10),
