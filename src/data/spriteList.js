@@ -16,5 +16,27 @@ export const GAME_SPRITES = {
       name: "tower-basic",
       path: "examples/sprites/Torre-Basica.png",
     },
+    {
+      name: "tower-area",
+      path: "examples/sprites/Torre-Area.png",
+    },
+    {
+      name: "tower-fast",
+      path: "examples/sprites/Torre-Rapida.png",
+    },
+    {
+      name: "tower-stun",
+      path: "examples/sprites/Torre-Stun.png",
+    },
+  ],
+  hud: [
+    {
+      name: "background-hud",
+      path: "examples/sprites/Background-Hexagonal.png",
+    },
+    {
+      name: "border-hud",
+      path: "examples/sprites/Bordas-Hud.png",
+    },
   ],
 };

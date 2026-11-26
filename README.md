@@ -3,14 +3,13 @@
 - `src` - source code for your kaplay project
 - `dist` - distribution folder, contains your index.html, built js bundle and static assets
 
-
 ## Development
 
 ```sh
 $ bun run dev
 ```
 
-will start a dev server at http://localhost:8000
+will start a dev server at http://localhost:5173
 
 ## Distribution
 

@@ -1,26 +1,35 @@
 import kaplay from "kaplay";
-import { mapSprite } from "./ui/maps/base.js";
+import { LEVEL_ONE_ROUTE, LevelOne } from "./game/levels/levelOne.js";
 import { mainMenu } from "./ui/menu/mainMenu.js";
-import { createTowerSelectionHUD } from "./ui/hud/selection.js";
-import { assetsLoader } from "./system/loaders/spriteLoader.js";
-import { loadEnemyStats } from "./system/loaders/enemyLoader.js";
-import { circulo } from "./ui/enemies/circle.js";
+import { assetsLoader } from "./core/loaders/spriteLoader.js";
+import { loadEnemyStats } from "./core/loaders/enemyLoader.js";
+import { EnemySpawning } from "./game/enemies/enemyRoute.js";
+import { createHud, createBorder } from "./ui/hud/background.js";
+import { exibirTorres } from "./ui/hud/towers.js";
+import { posicionarTorres } from "./game/towers/towerPlacement.js";
+import { loadFonts } from "./ui/fonts.js";
 // import "kaplay/global"; // uncomment if you want to use without the k. prefix
 
 const circleStats = await loadEnemyStats("circle");
 
 const k = kaplay({
-  width: 800,
-  height: 600,
+  width: 1280,
+  height: 720,
   backgroundColor: [0, 0, 0],
+  font: "SmallPixaly",
 });
 
+loadFonts(k);
 assetsLoader(k);
 
 k.scene("game", () => {
-  mapSprite(k, "Mapa-Level-1", 0, 0);
-  createTowerSelectionHUD(k);
-  circulo.create(k, 100, 100, circleStats);
+  createHud(k, "background-hud", -12, -23.5, 3.0);
+  const map = LevelOne(k);
+  createBorder(k, "border-hud", 0, 0, 3.0);
+  const selecionarTorre = posicionarTorres(k, map);
+  exibirTorres(k, selecionarTorre);
+
+  EnemySpawning(k, circleStats, LEVEL_ONE_ROUTE);
 });
 
 mainMenu(k);
